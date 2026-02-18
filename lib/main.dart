@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'supabase_config.dart';
+import 'package:hogwarts_with_flutter/screens/home_screen.dart';
 
 void main() async {
   //Cargamos las variables de entorno
@@ -17,12 +18,10 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+    return MaterialApp(
+      title: "Hogwarts Database with Flutter",
+      theme: ThemeData(primarySwatch: Colors.blueGrey),
+      home: const HomeScreen(),
     );
   }
 }
