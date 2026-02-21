@@ -1,3 +1,5 @@
+import 'dart:nativewrappers/_internal/vm/lib/ffi_native_type_patch.dart';
+
 class Wizard {
 
   final String id;
@@ -10,6 +12,7 @@ class Wizard {
   final String? houseName;
   final String? wandWood;
   final String? wandCore;
+  final Double? wandLength;
 
 
   Wizard({
@@ -20,7 +23,8 @@ class Wizard {
     this.wandId,
     this.houseName,
     this.wandWood,
-    this.wandCore
+    this.wandCore,
+    this.wandLength
   });
 
 
@@ -33,7 +37,8 @@ class Wizard {
       wandId: map['wand_id'],
       houseName: map['houses'] != null ? map["houses"]["name"] : null,
       wandWood: map['wands'] != null ? map["wands"]["wood"] : null,
-      wandCore: map['wands'] != null ? map["wands"]["core"] : null
+      wandCore: map['wands'] != null ? map["wands"]["core"] : null,
+      wandLength: map['wands'] != null ? map["wands"]["length"] : null
     );
   }
 
