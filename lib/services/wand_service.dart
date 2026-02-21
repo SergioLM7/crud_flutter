@@ -1,6 +1,5 @@
 import 'package:hogwarts_with_flutter/supabase_config.dart';
 import '../models/wand.dart';
-import 'dart:nativewrappers/_internal/vm/lib/ffi_native_type_patch.dart';
 
 class WandService {
 
@@ -13,11 +12,11 @@ class WandService {
     return response.map((wand) => Wand.fromMap(wand)).toList();
   }
 
-  Future<void> addWand(String wood, String core, Double length) async {
+  Future<void> addWand(String wood, String core, double length) async {
     await _supabaseDB.from('wands').insert({'wood': wood, 'core': core, 'length': length});
   }
 
-  Future<void> updateWand(String id, String wood, String core, Double length) async {
+  Future<void> updateWand(String id, String wood, String core, double length) async {
     await _supabaseDB.from('wands').update({'wood': wood, 'core':core, 'length': length}).eq('id', id);
   }
 

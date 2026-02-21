@@ -1,5 +1,3 @@
-import 'dart:nativewrappers/_internal/vm/lib/ffi_native_type_patch.dart';
-
 class Wizard {
 
   final String id;
@@ -12,7 +10,7 @@ class Wizard {
   final String? houseName;
   final String? wandWood;
   final String? wandCore;
-  final Double? wandLength;
+  final double? wandLength;
 
 
   Wizard({

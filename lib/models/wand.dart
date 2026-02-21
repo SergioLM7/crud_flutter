@@ -1,10 +1,8 @@
-import 'dart:nativewrappers/_internal/vm/lib/ffi_native_type_patch.dart';
-
 class Wand {
   final String id;
   final String wood;
   final String core;
-  final Double length;
+  final double length;
 
   Wand({required this.id, required this.wood, required this.core, required this.length});
 
@@ -14,7 +12,7 @@ class Wand {
       id: json['id'] as String,
       wood: json['wood'] as String,
       core: json['core'] as String,
-      length: json['length'] as Double,
+      length: json['length'] as double,
     );
   }
 }
