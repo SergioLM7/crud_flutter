@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:hogwarts_with_flutter/screens/houses_list_screen.dart';
-import 'package:hogwarts_with_flutter/screens/wands_list_screen.dart';
-import 'package:hogwarts_with_flutter/screens/wizards_list_screen.dart';
+import '../screens/wizards_list_screen.dart';
+import '../screens/wands_list_screen.dart';
+import '../screens/houses_list_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -10,7 +10,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Hogwarts CRUD with Flutter"),
+        title: const Text("Hogwarts Students Manager"),
       ),
       body: Padding(padding: const EdgeInsets.all(16.0),
         child: GridView.count(crossAxisCount: 2, mainAxisSpacing: 20, crossAxisSpacing: 20,
