@@ -42,29 +42,31 @@ class _WandListScreenState extends State<WandsListScreen> {
           ),
         body: FutureBuilder(
           future: futureWands, 
-        builder: (context, snapshot) {
-          if (!snapshot.hasData) {
-            return const Center(child: CircularProgressIndicator());
+          builder: (context, snapshot) {
+            if (!snapshot.hasData) {
+              return const Center(child: CircularProgressIndicator());
+            }
+            final wands = snapshot.data!; //List(wands)
+            return ListView.builder(
+                itemCount: wands.length,
+                itemBuilder: (context, index) {
+                  final wand = wands[index];
+                  return ListTile(
+                    leading: Icon(Icons.auto_fix_high),
+                    title: Text('${wand.wood} with core of ${wand.core}'),
+                    subtitle: Text('Length: ${wand.length}'),
+                    trailing: IconButton(
+                      onPressed: () async {
+                        await service.deleteWand(wand.id);
+                        _refresh();
+                        },
+                      icon: const Icon(Icons.delete)),
+                      onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => WandFormScreen(wand: wand, onSaved: _refresh)))
+                  );
+                }
+              );
           }
-          final wands = snapshot.data!; //List(wands)
-          return ListView.builder(
-              itemCount: wands.length,
-              itemBuilder: (context, index) {
-                final wand = wands[index];
-                return ListTile(
-                  title: Text('${wand.wood} with core of ${wand.core}'),
-                  subtitle: Text('Length: ${wand.length}'),
-                  trailing: IconButton(
-                    onPressed: () async {
-                      await service.deleteWand(wand.id);
-                      _refresh();
-                      },
-                    icon: const Icon(Icons.delete)),
-                    onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => WandFormScreen(wand: wand, onSaved: _refresh)))
-                );
-              }
-            );
-        })
+        )
     );
   }
 }

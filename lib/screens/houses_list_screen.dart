@@ -52,6 +52,7 @@ class _HousesListScreenState extends State<HousesListScreen> {
                 itemBuilder: (context, index) {
                   final house = houses[index];
                   return ListTile(
+                    leading: Icon(Icons.house),
                     title: Text('House: ${house.name}'),
                     subtitle: Text('Founder: ${house.founder}'),
                     trailing: IconButton(
