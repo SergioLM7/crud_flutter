@@ -30,6 +30,7 @@ You need to have the following installed on your machine:
 To use the app, follow these steps:
 
 1. Open the app and you will see the home screen.
+
 ![Alt Text](https://github.com/SergioLM7/crud_flutter/blob/main/assets/images/homescreen.png "Home screen")
 
 2. Tap on the "Wand" card to view and manage the list of wands.
@@ -42,8 +43,6 @@ To use the app, follow these steps:
 5. Tap on the + button to add a new House.
 6. Tap on the "Wizard" card to view and manage the list of wizards.
 ![Alt Text](https://github.com/SergioLM7/crud_flutter/blob/main/assets/images/wizardslist.png "Wizards list screen")
-width="200"
-height="400"
 
 7. Tap on the + button to add a new Wizard.
 
