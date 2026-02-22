@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import '../models/wand.dart';
 import '../services/wand_service.dart';
@@ -57,7 +59,7 @@ class _WandFormScreenState extends State<WandFormScreen>{
               TextField(
                 controller: lengthCtrl,
                 decoration: const InputDecoration(labelText: "Length"),
-                keyboardType: TextInputType.number,
+                keyboardType: Platform.isIOS ? const TextInputType.numberWithOptions(signed: false, decimal: true) : TextInputType.number,
               ),
               const SizedBox(height: 20),
               ElevatedButton(
