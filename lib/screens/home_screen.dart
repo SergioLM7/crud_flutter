@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:hogwarts_with_flutter/screens/houses_list_screen.dart';
 import 'package:hogwarts_with_flutter/screens/wands_list_screen.dart';
 import 'package:hogwarts_with_flutter/screens/wizards_list_screen.dart';
