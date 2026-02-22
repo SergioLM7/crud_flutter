@@ -50,7 +50,7 @@ class _HousesListScreenState extends State<HousesListScreen> {
 
             if(houses.isEmpty) {
               return const Center(
-                child: Text('No houses found'),
+                child: Text('No houses found\nPulse + button to add one.'),
               );
             }
             

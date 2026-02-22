@@ -50,7 +50,7 @@ class _WandListScreenState extends State<WandsListScreen> {
 
             if(wands.isEmpty) {
               return const Center(
-                child: Text('No wands found'),
+                child: Text('No wands found\nPulse + button to add one.'),
               );
             }
 
