@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../services/wand_service.dart';
 import '../models/wand.dart';
 import '../screens/wand_form_screen.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class WandsListScreen extends StatefulWidget {
   const WandsListScreen({super.key});
@@ -34,7 +35,7 @@ class _WandListScreenState extends State<WandsListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
          appBar: AppBar(
-          title: const Text("Wands list"),
+          title: Text("Wands list", style: GoogleFonts.bagelFatOne()),
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => WandFormScreen(onSaved: _refresh))),

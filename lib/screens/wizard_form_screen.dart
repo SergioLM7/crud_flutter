@@ -6,6 +6,7 @@ import '../models/house.dart';
 import '../services/wizard_service.dart';
 import '../services/wand_service.dart';
 import '../services/house_service.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class WizardFormScreen extends StatefulWidget{
   //Si agregamos, no tenemos mago (vacío); si editamos, tenemos mago a editar
@@ -80,7 +81,7 @@ class _WizardFormScreenState extends State<WizardFormScreen>{
 
     return Scaffold(
         appBar: AppBar(
-          title: Text(isEdit ? "Edit wizard" : "Add new wizard"),
+          title: Text(isEdit ? "Edit wizard" : "Add new wizard", style: GoogleFonts.bagelFatOne()),
         ),
         body: 
         Padding(

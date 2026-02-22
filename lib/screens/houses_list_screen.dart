@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../models/house.dart';
 import '../services/house_service.dart';
 import '../screens/house_form_screen.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HousesListScreen extends StatefulWidget {
   const HousesListScreen({super.key});
@@ -34,7 +35,7 @@ class _HousesListScreenState extends State<HousesListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
          appBar: AppBar(
-          title: const Text("Houses list"),
+          title: Text("Houses list", style: GoogleFonts.bagelFatOne()),
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => HouseFormScreen(onSaved: _refresh,))),

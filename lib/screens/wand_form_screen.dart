@@ -1,5 +1,5 @@
 import 'dart:io';
-
+import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../models/wand.dart';
@@ -42,7 +42,7 @@ class _WandFormScreenState extends State<WandFormScreen>{
 
     return Scaffold(
         appBar: AppBar(
-          title: Text(isEdit ? "Edit wand" : "Add new wand"),
+          title: Text(isEdit ? "Edit wand" : "Add new wand", style: GoogleFonts.bagelFatOne()),
         ),
         body: 
         Padding(

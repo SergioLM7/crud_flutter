@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../services/wizard_service.dart';
 import '../models/wizard.dart';
 import '../screens/wizard_form_screen.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class WizardsListScreen extends StatefulWidget {
   const WizardsListScreen({super.key});
@@ -56,7 +57,7 @@ class _WizardsListScreenState extends State<WizardsListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Wizards list"),
+          title: Text("Wizards list", style: GoogleFonts.bagelFatOne(),),
         ),
         floatingActionButton: FloatingActionButton(
           child: const Icon(Icons.add),

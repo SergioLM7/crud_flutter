@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hogwarts_with_flutter/services/house_service.dart';
 import '../models/house.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 
 class HouseFormScreen extends StatefulWidget{
   //Si agregamos, no tenemos casa (vacía); si editamos, tenemos casa a editar
@@ -36,7 +36,7 @@ class _HouseFormScreenState extends State<HouseFormScreen>{
 
     return Scaffold(
         appBar: AppBar(
-          title: Text(isEdit ? "Edit house" : "Add new house"),
+          title: Text(isEdit ? "Edit house" : "Add new house", style: GoogleFonts.bagelFatOne()),
         ),
         body: 
         Padding(

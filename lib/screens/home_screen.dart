@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../screens/wizards_list_screen.dart';
 import '../screens/wands_list_screen.dart';
 import '../screens/houses_list_screen.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -10,7 +11,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Hogwarts Students Manager"),
+        title: Text("Hogwarts Students Manager", style: GoogleFonts.bagelFatOne(color: const Color.fromARGB(255, 141, 1, 1)),),
       ),
       body: Padding(padding: const EdgeInsets.all(16.0),
         child: GridView.count(crossAxisCount: 2, mainAxisSpacing: 20, crossAxisSpacing: 20,
@@ -69,10 +70,10 @@ Widget _buildHomeCard(
               // Texto
               Text(
                 title,
-                style: TextStyle(
+                style:  GoogleFonts.bagelFatOne(
                   fontSize: 18,
                   color: color,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.normal,
                 ),
               ),
             ],
