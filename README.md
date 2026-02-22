@@ -1,6 +1,6 @@
 # Hogwarts Students Manager
 
-This is my first Flutter application that allows you to manage students at Hogwarts School of Witchcraft and Wizardry with a Supabase Database. The app provides features to view and manage wizards, wands, and houses (full CRUD).
+This is my first Flutter application that allows you to manage students at Hogwarts School of Witchcraft and Wizardry with a Supabase Database. The app provides features to view and manage wizards, wands, and houses (full CRUD). It has been developed as a multiplatform app (Android, iOS, PC, macOS).
 
 ## Getting Started
 
