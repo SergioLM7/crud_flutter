@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import '../models/wand.dart';
 import '../services/wand_service.dart';
 
@@ -58,14 +59,21 @@ class _WandFormScreenState extends State<WandFormScreen>{
               ),
               TextField(
                 controller: lengthCtrl,
-                decoration: const InputDecoration(labelText: "Length"),
+                decoration: const InputDecoration(labelText: "Length", hintText: "Ex: 20.5"),
                 keyboardType: Platform.isIOS ? const TextInputType.numberWithOptions(signed: false, decimal: true) : TextInputType.number,
+                inputFormatters: [
+                  // Esto permite que el usuario escriba solo números, puntos y comas
+                  FilteringTextInputFormatter.allow(RegExp(r'[0-9.,]')),
+                ],
+              
               ),
               const SizedBox(height: 20),
               ElevatedButton(
                 child: Text(isEdit ? "Update" : "Save"),
                 onPressed: () async {
-                  final length = double.tryParse(lengthCtrl.text) ?? 0.0;
+                  //Sustituimos la , del teclado español por el . internacional para evitar problemas de parseo
+                  String lengthText = lengthCtrl.text.replaceAll(',', '.');
+                  final length = double.tryParse(lengthText) ?? 0.0;
 
                   if (isEdit) {
                     await service.updateWand(widget.wand!.id, coreCtrl.text, woodCtrl.text, length);
