@@ -34,7 +34,7 @@ class _WandListScreenState extends State<WandsListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
          appBar: AppBar(
-          title: const Text("Wands' list"),
+          title: const Text("Wands list"),
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => WandFormScreen(onSaved: _refresh,))),

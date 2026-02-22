@@ -7,8 +7,6 @@ class WandService {
 
   Future<List<Wand>> getWands() async {
     final response = await _supabaseDB.from('wand').select();
-      print('Query: ${_supabaseDB.from('wand').select()}');
-
     //Transformar la respuesta a objeto Wand (por eso preparamos el mapeo en la clase)
     //A futuro: habría que paginar o hacer una carga dinámica
     return response.map((wand) => Wand.fromMap(wand)).toList();
