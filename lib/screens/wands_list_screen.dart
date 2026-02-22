@@ -37,7 +37,7 @@ class _WandListScreenState extends State<WandsListScreen> {
           title: const Text("Wands list"),
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => WandFormScreen(onSaved: _refresh,))),
+          onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => WandFormScreen(onSaved: _refresh))),
           child: const Icon(Icons.add),
           ),
         body: FutureBuilder(
@@ -47,6 +47,13 @@ class _WandListScreenState extends State<WandsListScreen> {
               return const Center(child: CircularProgressIndicator());
             }
             final wands = snapshot.data!; //List(wands)
+
+            if(wands.isEmpty) {
+              return const Center(
+                child: Text('No wands found'),
+              );
+            }
+
             return ListView.builder(
                 itemCount: wands.length,
                 itemBuilder: (context, index) {
@@ -59,7 +66,7 @@ class _WandListScreenState extends State<WandsListScreen> {
                       onPressed: () async {
                         await service.deleteWand(wand.id);
                         _refresh();
-                        },
+                      },
                       icon: const Icon(Icons.delete)),
                       onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => WandFormScreen(wand: wand, onSaved: _refresh)))
                   );

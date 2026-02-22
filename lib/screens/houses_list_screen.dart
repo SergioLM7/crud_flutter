@@ -47,6 +47,13 @@ class _HousesListScreenState extends State<HousesListScreen> {
               return const Center(child: CircularProgressIndicator());
             }
             final houses = snapshot.data!; //List(houses)
+
+            if(houses.isEmpty) {
+              return const Center(
+                child: Text('No houses found'),
+              );
+            }
+            
             return ListView.builder(
                 itemCount: houses.length,
                 itemBuilder: (context, index) {
