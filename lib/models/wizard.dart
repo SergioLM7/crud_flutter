@@ -33,10 +33,10 @@ class Wizard {
       age: map['age'] as int,
       houseId: map['house_id'],
       wandId: map['wand_id'],
-      houseName: map['houses'] != null ? map["houses"]["name"] : null,
-      wandWood: map['wands'] != null ? map["wands"]["wood"] : null,
-      wandCore: map['wands'] != null ? map["wands"]["core"] : null,
-      wandLength: map['wands'] != null ? map["wands"]["length"] : null
+      houseName: map['house'] != null ? map["house"]["name"] : null,
+      wandWood: map['wand'] != null ? map["wand"]["wood"] : null,
+      wandCore: map['wand'] != null ? map["wand"]["core"] : null,
+      wandLength: map['wand'] != null ? map["wand"]["length"] : null
     );
   }
 
