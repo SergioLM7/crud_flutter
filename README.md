@@ -30,11 +30,19 @@ You need to have the following installed on your machine:
 To use the app, follow these steps:
 
 1. Open the app and you will see the home screen.
+![](https://github.com/SergioLM7/crud_flutter/assets/images/homescreen.png)
+
 2. Tap on the "Wand" card to view and manage the list of wands.
+![](https://github.com/SergioLM7/crud_flutter/assets/images/wandslist.png)
+
 3. Tap on the + button to add a new Wand.
 4. Tap on the "House" card to view and manage the list of houses.
+![](https://github.com/SergioLM7/crud_flutter/assets/images/houseslist.png)
+
 5. Tap on the + button to add a new House.
 6. Tap on the "Wizard" card to view and manage the list of wizards.
+![](https://github.com/SergioLM7/crud_flutter/assets/images/wizardslist.png)
+
 7. Tap on the + button to add a new Wizard.
 
 ## Contributing
