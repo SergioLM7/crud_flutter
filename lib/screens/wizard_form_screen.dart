@@ -6,7 +6,6 @@ import '../models/house.dart';
 import '../services/wizard_service.dart';
 import '../services/wand_service.dart';
 import '../services/house_service.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class WizardFormScreen extends StatefulWidget{
   //Si agregamos, no tenemos mago (vacío); si editamos, tenemos mago a editar
@@ -66,6 +65,7 @@ class _WizardFormScreenState extends State<WizardFormScreen>{
   @override
   Widget build(BuildContext context) {
     final isEdit = widget.wizard != null;
+    final headerStyle = Theme.of(context).textTheme.headlineLarge;
 
     // Tema local para dar formato tipo TextField a los DropdownMenu
     final dropdownTheme = Theme.of(context).copyWith(
@@ -81,7 +81,7 @@ class _WizardFormScreenState extends State<WizardFormScreen>{
 
     return Scaffold(
         appBar: AppBar(
-          title: Text(isEdit ? "Edit wizard" : "Add new wizard", style: GoogleFonts.bagelFatOne()),
+          title: Text(isEdit ? "Edit wizard" : "Add new wizard", style: headerStyle),
         ),
         body: 
         Padding(

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../services/wizard_service.dart';
 import '../models/wizard.dart';
 import '../screens/wizard_form_screen.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class WizardsListScreen extends StatefulWidget {
   const WizardsListScreen({super.key});
@@ -55,9 +54,20 @@ class _WizardsListScreenState extends State<WizardsListScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final headerStyle = Theme.of(context).textTheme.headlineLarge;
+
     return Scaffold(
         appBar: AppBar(
-          title: Text("Wizards list", style: GoogleFonts.bagelFatOne(),),
+          title: Row(
+            children: [
+              Hero(
+                tag: "Wizards_hero",
+                child: const Icon(Icons.people),
+              ),
+              const SizedBox(width: 8),
+              Text("Wizards list", style: headerStyle),
+            ],
+          ),
         ),
         floatingActionButton: FloatingActionButton(
           child: const Icon(Icons.add),
@@ -77,7 +87,7 @@ class _WizardsListScreenState extends State<WizardsListScreen> {
 
             if(wizards.isEmpty) {
               return const Center(
-                child: Text('No wizards found\n Pulse + button to add one.', 
+                child: Text('The Sorting Hat is waiting for new wizards and witches\n Pulse + button to help it.', 
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 20),
                   ),
@@ -94,7 +104,7 @@ class _WizardsListScreenState extends State<WizardsListScreen> {
                   return Card(
                     margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                     child: ListTile(
-                      leading: Icon(Icons.rowing),
+                      leading: Icon(Icons.people),
                       title: Text('Wizard: ${w.name}', style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),), 
                       subtitle: Text('Age: ${w.age}\nHouse: $house\nWand: $wand'),
                       trailing: Row(
@@ -102,7 +112,7 @@ class _WizardsListScreenState extends State<WizardsListScreen> {
                         children: [
                           // --- ICONO EDITAR ---
                           IconButton(
-                            icon: const Icon(Icons.edit, color: Colors.blueAccent),
+                            icon: const Icon(Icons.edit),
                             tooltip: "Update wizard",
                             onPressed: () {
                               Navigator.push(
@@ -119,7 +129,7 @@ class _WizardsListScreenState extends State<WizardsListScreen> {
 
                           // --- ICONO ELIMINAR ---
                           IconButton(
-                            icon: const Icon(Icons.delete, color: Colors.red),
+                            icon: Icon(Icons.delete, color: headerStyle?.color),
                             tooltip: "Delete wizard",
                             onPressed: () async {
                               final confirm = await _confirmDelete(context);

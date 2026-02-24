@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../models/wand.dart';
@@ -39,10 +38,11 @@ class _WandFormScreenState extends State<WandFormScreen>{
   @override
   Widget build(BuildContext context) {
     final isEdit = widget.wand != null;
+    final headerStyle = Theme.of(context).textTheme.headlineLarge;
 
     return Scaffold(
         appBar: AppBar(
-          title: Text(isEdit ? "Edit wand" : "Add new wand", style: GoogleFonts.bagelFatOne()),
+          title: Text(isEdit ? "Edit wand" : "Add new wand", style: headerStyle),
         ),
         body: 
         Padding(

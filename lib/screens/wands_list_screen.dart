@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../services/wand_service.dart';
 import '../models/wand.dart';
 import '../screens/wand_form_screen.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class WandsListScreen extends StatefulWidget {
   const WandsListScreen({super.key});
@@ -33,9 +32,20 @@ class _WandListScreenState extends State<WandsListScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final headerStyle = Theme.of(context).textTheme.headlineLarge;
+
     return Scaffold(
          appBar: AppBar(
-          title: Text("Wands list", style: GoogleFonts.bagelFatOne()),
+          title: Row(
+            children: [
+              Hero(
+                tag: "Wands_hero",
+                child: const Icon(Icons.auto_fix_high),
+              ),
+              const SizedBox(width: 8),
+              Text("Wands list", style: headerStyle),
+            ],
+          ),
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => WandFormScreen(onSaved: _refresh))),
@@ -51,7 +61,7 @@ class _WandListScreenState extends State<WandsListScreen> {
 
             if(wands.isEmpty) {
               return const Center(
-                child: Text('No wands found\nPulse + button to add one.'),
+                child: Text('Olivanders is waiting for new wands\nPulse + to manufacture one.'),
               );
             }
 

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../models/house.dart';
 import '../services/house_service.dart';
 import '../screens/house_form_screen.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class HousesListScreen extends StatefulWidget {
   const HousesListScreen({super.key});
@@ -10,7 +9,6 @@ class HousesListScreen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _HousesListScreenState();
 }
-
 
 class _HousesListScreenState extends State<HousesListScreen> {
 
@@ -33,13 +31,23 @@ class _HousesListScreenState extends State<HousesListScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final headerStyle = Theme.of(context).textTheme.headlineLarge;
     return Scaffold(
          appBar: AppBar(
-          title: Text("Houses list", style: GoogleFonts.bagelFatOne()),
+          title: Row(
+            children: [
+              Hero(
+                tag: "Houses_hero",
+                child: const Icon(Icons.house),
+              ),
+              const SizedBox(width: 8),
+              Text("Houses list", style: headerStyle),
+            ],
+          ),
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => HouseFormScreen(onSaved: _refresh,))),
-          child: const Icon(Icons.add),
+          child: Icon(Icons.add),
         ),
         body: FutureBuilder(
           future: futureHouses, 
@@ -51,7 +59,7 @@ class _HousesListScreenState extends State<HousesListScreen> {
 
             if(houses.isEmpty) {
               return const Center(
-                child: Text('No houses found\nPulse + button to add one.'),
+                child: Text('Hogwarts is waiting for new houses\nPulse + button to create a new one.'),
               );
             }
             
@@ -60,7 +68,7 @@ class _HousesListScreenState extends State<HousesListScreen> {
                 itemBuilder: (context, index) {
                   final house = houses[index];
                   return ListTile(
-                    leading: Icon(Icons.house),
+                    leading: const Icon(Icons.house),
                     title: Text('House: ${house.name}'),
                     subtitle: Text('Founder: ${house.founder}'),
                     trailing: IconButton(
@@ -68,7 +76,7 @@ class _HousesListScreenState extends State<HousesListScreen> {
                         await service.deleteHouse(house.id);
                         _refresh();
                         },
-                      icon: const Icon(Icons.delete)),
+                      icon: Icon(Icons.delete)),
                       onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => HouseFormScreen(house: house, onSaved: _refresh)))
                   );
                 }
